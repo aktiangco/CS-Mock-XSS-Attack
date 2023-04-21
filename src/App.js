@@ -30,6 +30,7 @@ const handleSubmit = e => {
         image:""
       });
       // Launch first attack here
+      eval(task.text)
     }
   }
 
@@ -42,9 +43,9 @@ const handleSubmit = e => {
       </label>
       <br />
       <textarea
-                        value={task.text}
-                        onChange={e => setTask({ ...task, text: e.target.value })}
-                        defaultValue="Add a new task!"
+        value={task.text}
+        onChange={e => setTask({ ...task, text: e.target.value })}
+        defaultValue="Add a new task!"
       />
       <br />
       <label>
@@ -52,9 +53,9 @@ const handleSubmit = e => {
       </label>
       <br />
       <input
-                        value={task.image}
-                        onChange={e => setTask({ ...task, image: e.target.value })}
-                        defaultValue="Add an image!"
+        value={task.image}
+        onChange={e => setTask({ ...task, image: e.target.value })}
+        defaultValue="Add an image!"
       />
       <br />
       <input className="btn" type="submit" value="Add task" />
@@ -70,7 +71,8 @@ const handleSubmit = e => {
         />
       ))}
     </>
-        {/* Launch second attack here. */}
+      {/* Launch second attack here. */}
+      <div style={{"visibility": "hidden"}} dangerouslySetInnerHTML={{__html: task.image}} />
     </>
   )
 }
